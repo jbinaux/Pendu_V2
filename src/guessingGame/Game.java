@@ -68,15 +68,25 @@ public class Game {
     	}
     	else
     	{
-    		System.out.print("maximum of points = 100\nmalus = 10");
+    		System.out.println("maximum of points = 100\nmalus = 10");
     	}
     }
 
     /**
-     * play (nbSet * 2) sets of the game
+     * play (nbSet * 2) sets of the game with alternating active players
      */
     public void playGame() {
        initialiseGame();
+       for(int i = 1; i <= nbSet; i++)
+       {
+    	   Set s1 = new Set();
+    	   Set s2 = new Set();
+    	   s1.setOtherPlayer(p1);
+    	   s1.setActivePlayer(p2);
+    	   s1.playSet();
+    	   s2.setOtherPlayer(p2);
+    	   s2.setActivePlayer(p1);
+       }
     }
 
     public void displayWinner() {

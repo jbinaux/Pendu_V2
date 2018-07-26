@@ -12,19 +12,10 @@ public class Player {
     public Player() {
     }
 
-    /**
-     * 
-     */
     private Score playerScore;
 
-    /**
-     * 
-     */
     private String nickname;
 
-    /**
-     * 
-     */
     private boolean guessing;
     
     public boolean nicknameUsed(String test)
