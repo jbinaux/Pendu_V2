@@ -9,7 +9,7 @@ public class Player {
     /**
      * Default constructor
      */
-    private Player() {
+    public Player() {
     }
 
     /**
@@ -26,6 +26,23 @@ public class Player {
      * 
      */
     private boolean guessing;
+    
+    public boolean nicknameUsed(String test)
+    {
+    	if(test.length() != nickname.length())
+    	{
+    		return false;
+    	}
+    	
+    	for(int i = 0; i < test.length(); i++)
+    	{
+    		if(test.charAt(i) != nickname.charAt(i))
+    		{
+    			return false;
+    		}
+    	}
+    	return true;
+    }
 
 	public Score getPlayerScore() {
 		return playerScore;

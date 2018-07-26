@@ -1,9 +1,7 @@
 package guessingGame;
 
+import java.util.Scanner;
 
-/**
- * 
- */
 public class Game {
 
     /**
@@ -12,50 +10,75 @@ public class Game {
     public Game() {
     }
 
-    /**
-     * 
-     */
     private int nbSet;
 
-    /**
-     * 
-     */
-    private int pointMax;
+    private int pointMax = 100;
 
-    /**
-     * 
-     */
-    private int malus;
+    private int malus = 10;
 
-    /**
-     * premier joueur
-     */
-    private Player p1;
+    private Player p1 = new Player();
 
-    /**
-     * deuxieme joueur
-     */
-    private Player p2;
+    private Player p2 = new Player();
 
     /**
      * initialise the game with  players names, point system and number of sets
-     * @return
      */
     public void initialiseGame() {
-        // TODO implement here
+    	Scanner scan = new Scanner(System.in);
+    	char c;
+    	String input;
+    	
+    	System.out.print("Enter player 1 name : ");
+    	input = scan.nextLine();
+    	while(input.length() == 0)
+    	{
+    		input = scan.nextLine();
+    	}
+    	p1.setNickname(input);
+    	System.out.flush();
+    	System.out.print("Enter player 2 name : ");
+    	input = scan.nextLine();
+    	while(input.length() == 0 || p1.nicknameUsed(input))
+    	{
+    		if(p1.nicknameUsed(input))
+    		{
+    			System.out.println("Name already taken !");
+    		}
+    		input = scan.nextLine();
+    	}
+    	p2.setNickname(input);
+    	System.out.flush();
+    	System.out.print("Enter number of sets : ");
+    	nbSet = scan.nextInt();
+    	System.out.flush();
+    	System.out.println("Play with default point system ? Y/N");
+    	c = scan.next().charAt(0);
+    	while(c != 'y' && c != 'Y' && c != 'n' && c != 'N')
+    	{
+    		c = scan.next().charAt(0);
+    	}
+    	if(c == 'n' || c == 'N')
+    	{
+    		System.out.print("Enter maximum of points : ");
+        	pointMax = scan.nextInt();
+        	System.out.flush();
+        	System.out.print("Enter malus : ");
+        	malus = scan.nextInt();
+        	System.out.flush();
+    	}
+    	else
+    	{
+    		System.out.print("maximum of points = 100\nmalus = 10");
+    	}
     }
 
     /**
-     * play (nbSet * 2) sets of  guessing the word
-     * @return
+     * play (nbSet * 2) sets of the game
      */
     public void playGame() {
-        // TODO implement here
+       initialiseGame();
     }
 
-    /**
-     * @return
-     */
     public void displayWinner() {
         // TODO implement here
     }
