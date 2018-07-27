@@ -42,8 +42,25 @@ public class Set {
         	hidden.display();
         	System.out.println(activePlayer.getNickname() + ", enter a character");
         	s = scan.nextLine();
+        	while(s.length() == 0)
+        	{
+        		s = scan.nextLine();
+        	}
+        	while(s.length() > 1 || (s.charAt(0) < 'a' && s.charAt(0) < 'z'))
+    		{
+    			System.out.println("Enter one lowercase letter");
+    			s = scan.nextLine();
+    		}
+        	if(toGuess.guessChar(s.charAt(0)))
+        	{
+        		hidden.replaceChar(s.charAt(0), toGuess);
+        	}
+        	else
+        	{
+        		numberOfTry--;
+        	}
         	
-        	numberOfTry--;
+        	
         }
     }
 

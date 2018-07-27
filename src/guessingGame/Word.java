@@ -96,14 +96,28 @@ public class Word {
 
     /**
      * @param c 
-     * @return
+     * @return boolean
      */
-    public int[] guessChar(char c) {
-        // TODO implement here
+    public boolean guessChar(char c) {
+    	for(int i = 0; i < letters.length; i++)
+    	{
+    		if(letters[i] == c)
+    		{
+    			return true;
+    		}
+    	}
+    	return false;
     }
 
-    public void replaceChar(char c, int[] index) {
-        // TODO implement here
+    public void replaceChar(char c, Word toGuess) {
+
+    	for(int i = 0; i < toGuess.getLetters().length; i++)
+    	{
+    		if(c == toGuess.getLetters()[i])
+    		{
+    			letters[i] = c;
+    		}
+    	}
     }
     /**
      * @param c 

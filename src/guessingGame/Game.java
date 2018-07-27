@@ -86,6 +86,7 @@ public class Game {
     	   s1.playSet();
     	   s2.setOtherPlayer(p2);
     	   s2.setActivePlayer(p1);
+    	   s2.playSet();
        }
     }
 
