@@ -42,6 +42,7 @@ public class Set {
         hidden.setLetters(toGuess.generateHidden());
         while(!hidden.isCompleted() && numberOfTry != 0)
         {
+        	System.out.print("\033[H\033[2J");
         	System.out.flush();
         	System.out.println(activePlayer.getNickname() + ", you have " + numberOfTry + " tries remaining");
         	activePlayer.getPlayerScore().display();
@@ -69,6 +70,7 @@ public class Set {
         		numberOfTry--;
         	}
         }
+        System.out.print("\033[H\033[2J");
         System.out.flush();
         hidden.display();
         System.out.println("you won " + activePlayer.getPlayerScore().calculatePoints(pointMax, malus, numberOfTry) + " points");
@@ -78,6 +80,7 @@ public class Set {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+        System.out.print("\033[H\033[2J");
         System.out.flush();
     }
 
