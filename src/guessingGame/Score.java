@@ -15,16 +15,16 @@ public class Score {
     /**
      * 
      */
-    private int points;
+    private int points = 0;
 
     /**
      * @param pointMax 
      * @param malus 
      * @return
      */
-    public int calculatePoints(int pointMax, int malus) {
-        // TODO implement here
-        return 0;
+    public int calculatePoints(int pointMax, int malus, int numberOfTry) {
+    	points += pointMax - (malus * (10 - numberOfTry));
+    	return pointMax - (malus * (10 - numberOfTry));
     }
 
     /**
@@ -33,7 +33,15 @@ public class Score {
      * @return
      */
     public Player compareScores(Player p1, Player p2) {
-        // TODO implement here
+
+    	if (p1.getPlayerScore().getPoints() < p2.getPlayerScore().getPoints())
+    	{
+    		return p2;
+    	}
+    	else if (p1.getPlayerScore().getPoints() > p2.getPlayerScore().getPoints())
+    	{
+    		return p1;
+    	}
         return null;
     }
 
@@ -41,7 +49,7 @@ public class Score {
      * @return
      */
     public void display() {
-        // TODO implement here
+    	System.out.println("You have " + points + " points" );
     }
 
 	public int getPoints() {

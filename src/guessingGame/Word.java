@@ -119,14 +119,6 @@ public class Word {
     		}
     	}
     }
-    /**
-     * @param c 
-     * @param Word 
-     * @return
-     */
-    public void completeChar(char c, Word toGuess) {
-        // TODO implement here
-    }
 
 	public char[] getLetters() {
 		return letters;

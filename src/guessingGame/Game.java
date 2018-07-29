@@ -83,15 +83,29 @@ public class Game {
     	   Set s2 = new Set();
     	   s1.setOtherPlayer(p1);
     	   s1.setActivePlayer(p2);
+    	   s1.setPointMax(pointMax);
+    	   s1.setMalus(malus);
     	   s1.playSet();
     	   s2.setOtherPlayer(p2);
     	   s2.setActivePlayer(p1);
+    	   s2.setPointMax(pointMax);
+    	   s2.setMalus(malus);
     	   s2.playSet();
        }
+       displayWinner();
     }
 
     public void displayWinner() {
-        // TODO implement here
+
+    	System.out.flush();
+    	if(p1.getPlayerScore().compareScores(p1, p2) == null)
+    	{
+    		System.out.println("You are ex-aequo with " + p1.getPlayerScore().getPoints() + " points each");
+    	}
+    	else
+    	{
+    		System.out.println(p1.getPlayerScore().compareScores(p1, p2).getNickname() + " is the winner with " + p1.getPlayerScore().compareScores(p1, p2).getPlayerScore().getPoints() + " points");
+    	}
     }
 
 	public int getNbSet() {

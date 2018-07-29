@@ -12,7 +12,7 @@ public class Player {
     public Player() {
     }
 
-    private Score playerScore;
+    private Score playerScore = new Score();
 
     private String nickname;
 

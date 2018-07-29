@@ -15,14 +15,21 @@ public class UsedLetters {
     /**
      * 
      */
-    private char[] letters;
+    private char[] letters = new char[0];
 
     /**
      * @param char 
-     * @return
+     * @return boolean
      */
     public boolean isUsed(char c) {
-        // TODO implement here
+
+    	for(int i = 0; i < letters.length; i++)
+    	{
+    		if(letters[i] == c)
+    		{
+    			return true;
+    		}
+    	}
         return false;
     }
 
@@ -31,16 +38,31 @@ public class UsedLetters {
      * @return
      */
     public void addLetter(char c) {
-        // TODO implement here
 
+    	char[] tmp = new char[letters.length];
+    	for(int i = 0; i < letters.length; i++)
+    	{
+    		tmp[i] = letters[i];
+    	}
+    	letters = new char[letters.length + 1];
+    	for(int i = 0; i < tmp.length; i++)
+    	{
+    		letters[i] = tmp[i];
+    	}
+    	letters[letters.length - 1] = c;
     }
 
     /**
      * @return
      */
     public void display() {
-        // TODO implement here
 
+    	System.out.print("Used letters : \u001b[31m");
+    	for(int i = 0; i < letters.length; i++)
+    	{
+    		System.out.print(letters[i] + " ");
+    	}
+    	System.out.print("\u001b[0m\n");
     }
 
 	public char[] getLetters() {
