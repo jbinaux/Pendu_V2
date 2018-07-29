@@ -72,7 +72,8 @@ public class Set {
         }
         System.out.print("\033[H\033[2J");
         System.out.flush();
-        hidden.display();
+        System.out.print("The word was : ");
+        toGuess.display();
         System.out.println("you won " + activePlayer.getPlayerScore().calculatePoints(pointMax, malus, numberOfTry) + " points");
         activePlayer.getPlayerScore().display();
         try {

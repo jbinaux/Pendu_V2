@@ -35,6 +35,7 @@ public class Game {
     		input = scan.nextLine();
     	}
     	p1.setNickname(input);
+    	System.out.print("\033[H\033[2J");
     	System.out.flush();
     	System.out.print("Enter player 2 name : ");
     	input = scan.nextLine();
@@ -47,9 +48,11 @@ public class Game {
     		input = scan.nextLine();
     	}
     	p2.setNickname(input);
+    	System.out.print("\033[H\033[2J");
     	System.out.flush();
     	System.out.print("Enter number of sets : ");
     	nbSet = scan.nextInt();
+    	System.out.print("\033[H\033[2J");
     	System.out.flush();
     	System.out.println("Play with default point system ? Y/N");
     	c = scan.next().charAt(0);
@@ -61,9 +64,11 @@ public class Game {
     	{
     		System.out.print("Enter maximum of points : ");
         	pointMax = scan.nextInt();
+        	System.out.print("\033[H\033[2J");
         	System.out.flush();
         	System.out.print("Enter malus : ");
         	malus = scan.nextInt();
+        	System.out.print("\033[H\033[2J");
         	System.out.flush();
     	}
     	else
@@ -77,6 +82,8 @@ public class Game {
      */
     public void playGame() {
        initialiseGame();
+       System.out.print("\033[H\033[2J");
+       System.out.flush();
        for(int i = 1; i <= nbSet; i++)
        {
     	   Set s1 = new Set();
